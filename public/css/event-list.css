@@ -1,0 +1,370 @@
+.event-list {list-style: none;margin: 0px;padding: 0px;}
+.event-list > li {background-color: #FFF;padding: 0px;margin: 0px 0px 10px; border:1px solid #ddd;}
+.event-list > li:last-child{margin: 0px;}
+
+.event-list > li > time {
+	display: inline-block;
+	/*width: 100%;*/
+	color: rgb(255, 255, 255);
+	background-color: #1B8DBB;
+	padding: 5px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.col1{
+	width:100%;
+	float:left;
+}
+.col2{
+	width:50%;
+	float:left;
+}
+.col3{
+	width:33.3333%;
+	
+}
+
+.event-list > li > time:nth-child(even){background-color: #79A736}
+.event-list > li:nth-child(even) > time{background-color: #29ABE0}
+.event-list > li:nth-child(even) > time:nth-child(even){background-color: #93C54B}
+.event-list > li > time > span {}
+.event-list > li > time > .to{color:#EEE;display: block;font-size: 13px;font-weight: normal;line-height: 14px;margin:8px 0px 0px 0px}
+
+.event-list > li > time > .time {
+	display: block;
+}
+.event-list > li > time > .day {
+	display: block;
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 40px;
+	margin-top:0px;
+}
+
+.event-list > li time > .month {
+	display: block;
+	font-size: 16px;
+	font-weight: lighter;
+	line-height: 18px;
+	margin-top:0px;
+}
+.event-list > li time > .year {
+	font-weight: lighter;
+}
+.event-list > li > a.img {
+	width: 100%;
+	
+}
+.event-list > li > img {
+	width: 100%;
+	/*height:120px;*/
+	
+}
+
+.event-list > li > a.img img {
+	width: 100%;
+}
+.event-list > li > .info {
+	padding: 0 10px;
+	text-align: center;
+}
+
+.event-list > li > .info h3{
+	margin-top:16px;
+	font-size:22px;
+}
+
+.event-list > li > .info > ul,
+.event-list > li > .social > ul {
+	display: table;
+	list-style: none;
+	margin: 10px 0px 0px;
+	padding: 0px;
+	width: 100%;
+	text-align: center;
+}
+.event-list > li > .social > ul {
+	margin: 0px;
+}
+.event-list > li > .info > ul > li,
+.event-list > li > .social > ul > li {
+	display: table-cell;
+	/*cursor: pointer;*/
+	color: #ccc;
+	font-size: 11pt;
+	font-weight: 300;
+	padding: 3px 0px;
+}
+.event-list > li > .info > ul > li > a {
+	display: block;
+	width: 100%;
+	color: rgb(30, 30, 30);
+	text-decoration: none;
+} 
+.event-list > li > .social > ul > li {    
+	padding: 0px;
+}
+.event-list > li > .social > ul > li > a {
+	padding: 3px 0px;
+} 
+/*
+.event-list > li > .info > ul > li:hover,
+.event-list > li > .social > ul > li:hover {
+	color: rgb(30, 30, 30);
+	background-color: rgb(200, 200, 200);
+}*/
+
+
+
+.event-list .facebook a,
+.event-list .twitter a,
+.event-list .google-plus a ,
+.event-list .youtube a ,
+.event-list .linkedin a ,
+.event-list .website a{
+	display: block;
+	width: 100%;
+	color: rgb(75, 110, 168) !important;
+}
+.event-list .twitter a {
+	color: rgb(79, 213, 248) !important;
+}
+.event-list .google-plus a {
+	color: rgb(221, 75, 57) !important;
+}
+.event-list .youtube a {
+	color: rgb(221, 75, 57) !important;
+}
+.event-list .linkedin a {
+	color: #0077B5 !important;
+}
+.event-list .website a {
+	color: #325D88 !important;
+}
+.event-list .facebook:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(75, 110, 168) !important;
+}
+.event-list .twitter:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(79, 213, 248) !important;
+}
+.event-list .google-plus:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(221, 75, 57) !important;
+}
+.event-list .linkedin:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: #0077B5 !important;
+}
+.event-list .youtube:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(221, 75, 57) !important;
+}
+.event-list .website:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: #325D88 !important;
+}
+
+.social .twitter a {
+	color: rgb(79, 213, 248) !important;
+}
+.social .google-plus a {
+	color: rgb(221, 75, 57) !important;
+}
+.social .youtube a {
+	color: rgb(221, 75, 57) !important;
+}
+.social .linkedin a {
+	color: #0077B5 !important;
+}
+.social .website a {
+	color: #325D88 !important;
+}
+.social .facebook:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(75, 110, 168) !important;
+}
+.social .twitter:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(79, 213, 248) !important;
+}
+.social .google-plus:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(221, 75, 57) !important;
+}
+.social .youtube:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(221, 75, 57) !important;
+}
+.social .linkedin:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: #0077B5 !important;
+}
+.social .website:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: #325D88 !important;
+}
+
+.social-detail li{
+	border:1px solid #f1f1f1;
+	background:#fafafa;
+	
+}
+
+
+@media (min-width: 768px) {
+	.event-list > li {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 122px;
+		padding: 0px;
+	}
+	.event-list > li > time,
+	.event-list > li > a.img ,
+	.event-list > li > img  {
+		display: inline-block;
+	}
+	.event-list > li > time,
+	.event-list > li > a.img,
+	.event-list > li > img {
+		width: 120px;
+		float: left;
+	}
+	.event-list > li > .info {
+		background-color: rgb(245, 245, 245);
+		overflow: hidden;
+	}
+	.event-list > li > time,
+	.event-list > li > a.img,
+	.event-list > li > img {
+		width: 120px;
+		height: 120px;
+		padding: 0px;
+		margin: 0px;
+	}
+	.event-list > li > .info {
+		position: relative;
+		height: 120px;
+		text-align: left;
+		padding-right: 40px;
+	}	
+
+	.event-list > li > .info > ul {
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+	}
+	.event-list > li > .social {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		display: block;
+		width: 40px;
+	}
+	.event-list > li > .social > ul {
+		border-left: 1px solid rgb(230, 230, 230);
+	}
+	.event-list > li > .social > ul > li {			
+		display: block;
+		padding: 0px;
+	}
+	.event-list > li > .social > ul > li > a, .event-list > li > .social > ul > li > span {
+		display: block;
+		width: 38px;
+		padding: 10px 0px 9px;
+	}
+}
+
+
+
+
+	.event-list.event-left > li {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 122px;
+		padding: 0px;
+	}
+	.event-list.event-left > li > time,
+	.event-list.event-left > li > a.img ,
+	.event-list.event-left > li > img  {
+		display: inline-block;
+	}
+	.event-list.event-left > li > time,
+	.event-list.event-left > li > a.img,
+	.event-list.event-left > li > img {
+		width: 120px;
+		float: left;
+	}
+	.event-list.event-left > li > .info {
+		background-color: rgb(245, 245, 245);
+		overflow: hidden;
+	}
+	.event-list.event-left > li > time,
+	.event-list.event-left > li > a.img,
+	.event-list.event-left > li > img {
+		width: 120px;
+		height: 120px;
+		padding: 0px;
+		margin: 0px;
+	}
+	.event-list.event-left > li > .info {
+		position: relative;
+		height: 120px;
+		text-align: left;
+		padding-right: 40px;
+	}	
+
+	.event-list.event-left > li > .info > ul {
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+	}
+	.event-list.event-left > li > .social {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		display: block;
+		width: 40px;
+	}
+	.event-list.event-left > li > .social > ul {
+		border-left: 1px solid rgb(230, 230, 230);
+	}
+	.event-list.event-left > li > .social > ul > li {			
+		display: block;
+		padding: 0px;
+	}
+	.event-list.event-left > li > .social > ul > li > a, .event-list.event-left > li > .social > ul > li > span {
+		display: block;
+		width: 38px;
+		padding: 10px 0px 9px;
+	}
+
+
+
+.event-list span.categoryover{
+  background: #244363;
+  bottom: 0;
+  color: rgb(255, 255, 255);
+  margin: 0;
+  opacity: 0.75;
+  padding: 5px;
+  position: absolute;
+  width: 120px;
+  font-size:10px;
+}
+
+
+div.prossimi-eventi>table{width:100%;height:100%;margin-bottom:5px}
+div.prossimi-eventi table td.evento{padding:4px 6px;vertical-align:top;border:1px solid #DDD}
+div.prossimi-eventi table td.giorno{width:25%;max-width:120px;height:100%;border:1px solid #DDD;/*padding:1px*/}
+div.prossimi-eventi table td.giorno table{margin:0;height:100%;width:100%}
+div.prossimi-eventi table td.giorno td{padding:8px 2px;width:100%;color:#fff;line-height:14px}
+.fc-day-grid-container{cursor: pointer;}
+
+
+
+/*.bg-agenda{background-image: url("../img/calendar.png");background-repeat:no-repeat;padding-left:30px;background-position:center left}*/

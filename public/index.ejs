@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progetto Big Data & Tecnologie Semantiche</title>
+    <meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/my_style.css">
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+		crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|IBM+Plex+Sans+Condensed:400,400i|IBM+Plex+Sans:100,100i,400,400i,700,700i|IBM+Plex+Serif:400,400i&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div id="container">
+		<p><img src="images/logo-unisa.png" /></p>
+		<center>
+		<h2>Progetto RDFa</h2>
+		<h3>Corso di "Big Data & Tecnologie Sematiche" - AA 2019/2020</h4>
+		<h4>Docente: Sabrina Senatore</h5>
+		<hr>
+    	<div>
+			I membri del team sono:
+        	<ul class="member">
+          		<li>Capozzo Marco</li>
+          		<li>Celella Pasquale</li>
+          		<li>Liguori Francesco</li>
+          		<li>Rapido Christian</li>
+          		<li>Visconti Francesco</li>
+        	</ul>
+    	</div>
+		<hr>
+			https://docenti.unisa.it/{codice}/{param1}/{param2}
+
+			<form id="my_form" action="javascript:void(0)" method="get">
+				<input type="text" name="url_page" pattern="http(s){0,1}:\/\/docenti.unisa.it\/[0-9]{6}\/(home|didattica)" value="https://docenti.unisa.it/005133/home" placeholder="Inserisci URL professore" />
+				<input type="submit" value="Vai" />
+			</form>
+		<hr>
+			<h2>Esempio: Sabrina SENATORE</h2>
+			<p>Homepage: <a href="docenti/005133/home">Click here</a></p>
+			<p>Didattica: <a href="docenti/005133/didattica">Click here</a></p>
+
+			<h2>Esempio: Fausto ACERNESE</h2>
+			<p>Homepage: <a href="docenti/022126/home">Click here</a></p>
+			<p>Didattica: <a href="docenti/022126/didattica">Click here</a></p>
+
+			<h2>Esempio: Mario VENTO</h2>
+			<p>Homepage: <a href="docenti/005501/home">Click here</a></p>
+			<p>Didattica: <a href="docenti/005501/didattica">Click here</a></p>
+
+			<h2>Esempio: Fabio POSTIGLIONE</h2>
+			<p>Homepage: <a href="docenti/003735/home">Click here</a></p>
+			<p>Didattica: <a href="docenti/003735/didattica">Click here</a></p>
+		</center>
+	</div>
+
+<script>
+$(document).on('submit','#my_form',function() {
+	var url_prof = $("#my_form input[type='text']").val();
+	url_prof = url_prof.replace('docenti.unisa.it', '<%= req.get('host') %>/docenti');
+	window.location.replace(url_prof)
+});
+</script>
+
+</body>
+</html>

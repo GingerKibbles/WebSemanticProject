@@ -1,0 +1,265 @@
+<rdf:RDF xml:lang="it"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:schema="https://schema.org/"
+>
+
+<!-- ************************************** -->
+<!-- Definizione classi -->
+
+<rdfs:Class rdf:ID="Professor">
+    <rdfs:comment>
+        La classe rappresentativa di un professore
+    </rdfs:comment>
+    <rdfs:subClassof rdf:resource="schema:Person" />
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="Office">
+    <rdfs:comment>
+        La classe rappresentativa dell'ufficio di un professore
+    </rdfs:comment>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="OfficeHours">
+	<rdfs:comment>
+	    La classe rappresentativa dell'orario di ricevimento di un professore
+	</rdfs:comment>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="Course">
+	<rdfs:comment>
+	    La classe rappresentativa di un corso del professore
+	</rdfs:comment>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="Publication">
+	<rdfs:comment>
+	    La classe rappresentativa di una pubblicazione del professore
+	</rdfs:comment>
+  	<rdfs:subClassof rdf:resource="schema:PublicationIssue" />
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="ErasmusAgreement">
+	<rdfs:comment>
+	    La classe rappresentativa dell'accordo erasmus intrapreso da un docente nei confronti di un istituto straniero
+	</rdfs:comment>
+</rdfs:Class>
+
+<rdfs:Class rdf:ID="ISCED">
+	<rdfs:comment>
+	    La classe rappresentativa dello standard creato dall'UNESCO come sistema internazionale di classificazione dei corsi di studio e dei relativi titoli
+	</rdfs:comment>
+</rdfs:Class>
+
+
+<!-- ************************************** -->
+<!-- Proprietà afferenti a Office -->
+<!-- Utilizzo: codice_prof/home -->
+
+<rdfs:Property rdf:ID="campusLocation">
+	<rdfs:domain rdf:resource="#Office" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="locatedInBuilding">
+	<rdfs:domain rdf:resource="#Office" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="atFloor">
+	<rdfs:domain rdf:resource="#Office" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property >
+
+<rdfs:Property rdf:ID="roomNumber">
+	<rdfs:domain rdf:resource="#Office" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+
+<!-- ************************************** -->
+<!-- Proprietà afferenti a Professor -->
+<!-- Utilizzo: codice_prof/home -->
+
+<rdfs:Property rdf:ID="hasOffice">
+	<rdfs:domain rdf:resource="#Professor" />
+	<rdfs:range rdf:resource="#Office" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="hasOfficeHours">
+	<rdfs:domain rdf:resource="#Professor" />
+	<rdfs:range rdf:resource="#OfficeHours" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="hasCourse">
+	<rdfs:domain rdf:resource="#Professor" />
+	<rdfs:range rdf:resource="#Course" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="hasErasmusAgreement">
+	<rdfs:domain rdf:resource="#Professor" />
+	<rdfs:range rdf:resource="#ErasmusAgreement" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="hasPublication">
+	<rdfs:domain rdf:resource="#Professor" />
+	<rdfs:range rdf:resource="#Publication" />
+</rdfs:Property>
+
+
+<!-- ************************************** -->
+<!-- Proprietà afferenti a OfficeHours -->
+<!-- Utilizzo: codice_prof/home -->
+
+<rdfs:Property rdf:ID="dayOfWeek">
+	<rdfs:domain rdf:resource="#OfficeHours" />
+	<rdfs:range>
+		<rdf:Alt>
+			<rdf:li>Lunedì</rdf:li>
+			<rdf:li>Martedì</rdf:li>
+			<rdf:li>Mercoledì</rdf:li>
+			<rdf:li>Giovedì</rdf:li>
+			<rdf:li>Venerdì</rdf:li>
+		</rdf:Alt>
+	</rdfs:range>
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="openingHour">
+	<rdfs:domain rdf:resource="#OfficeHours" />
+	<rdfs:range rdf:resource="xsd:time"/>
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="closingHour">
+	<rdfs:domain rdf:resource="#OfficeHours" />
+	<rdfs:range rdf:resource="xsd:time"/>
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="officeLocation">
+	<rdfs:domain rdf:resource="#OfficeHours" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+
+<!-- ************************************** -->
+<!-- Proprietà afferenti a Course -->
+<!-- Utilizzo: codice_prof/didattica -->
+
+<rdfs:Property rdf:ID="titleCourse">
+	<rdfs:domain rdf:resource="#Course" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="codeCourse">
+	<rdfs:domain rdf:resource="#Course" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="ofDepartment">
+	<rdfs:domain rdf:resource="#Course" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+  
+<rdfs:Property rdf:ID="levelOfDegree">
+	<rdfs:domain rdf:resource="#Course" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="kindOfDegree">
+	<rdfs:domain rdf:resource="#Course" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="yearCourse">
+	<rdfs:domain rdf:resource="#Course" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+
+<!-- ************************************** -->
+<!-- Proprietà afferenti a Publication -->
+<!-- Utilizzo: codice_prof/ricerca/publicazioni -->
+
+<rdfs:Property rdf:ID="name">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="author">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="datePublished">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:gYear" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="scopusID">
+  <rdfs:range rdf:resource="#Professor" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="isPartOf">
+  <rdfs:domain rdf:resource="#Publication" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="title">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="volumeNumber">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:integer" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="pageStart">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:integer" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="pageEnd">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:integer" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="issn">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="hasDOI">
+  <rdfs:domain rdf:resource="#Publication" />
+  <rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+
+<!-- ************************************** -->
+<!-- Proprietà afferenti a uni:ErasmusAgreement -->
+<!-- Utilizzo: international/erasmus -->
+
+<rdfs:Property rdf:ID="universityName">
+	<rdfs:domain rdf:resource="#ErasmusAgreement" />
+	<rdfs:range rdf:resource="xsd:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="departureUniversityUrl">
+	<rdfs:domain rdf:resource="#ErasmusAgreement" />
+	<rdfs:range rdf:resource="schema:URL" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="arrivalUniversityUrl">
+	<rdfs:domain rdf:resource="#ErasmusAgreement" />
+	<rdfs:range rdf:resource="schema:URL" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="concernedCourse">
+	<rdfs:domain rdf:resource="#ErasmusAgreement" />
+	<rdfs:range rdf:resource="schema:string" />
+</rdfs:Property>
+
+<rdfs:Property rdf:ID="professorUrl">
+	<rdfs:domain rdf:resource="#ErasmusAgreement" />
+	<rdfs:range rdf:resource="schema:string" />
+</rdfs:Property>
+
+</rdf:RDF>

@@ -1,0 +1,176 @@
+<div class="col-md-12" style="position:relative">
+    <div id="share-dropdown" class="dropdown">
+        <button class="btn text-primary btn-sm dropdown-toggle" type="button" id="share-dropdown-menu" data-toggle="dropdown" aria-expanded="true">
+            &nbsp;<span class="fa fa-share-alt" aria-hidden="true"></span>&nbsp;&nbsp; CONDIVIDI &nbsp;
+            <span class="caret text-right"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="share-dropdown-menu">
+            <li><a class="sharePopup btn btn-sm btn-facebook" title="Condividi su Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://docenti.unisa.it/<%= req.params.idprof %>/home"aria-label="Condividi su Facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
+            <li><a class="sharePopup btn btn-sm btn-twitter" title="Condividi su Twitter" href="http://www.twitter.com/intent/tweet?url=http://docenti.unisa.it/<%= req.params.idprof %>/home&amp;text=Home" aria-label="Condividi su Twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+            <li><a class="sharePopup btn btn-sm btn-google" title="Condividi su Google+" href="https://plus.google.com/share?url=http://docenti.unisa.it/<%=  req.params.idprof%>/home" aria-label="Condividi su Google+"><span class="fa fa-google-plus" aria-hidden="true"></span></a></li>
+            <li><a class="sharePopup btn btn-sm btn-whatsapp visible-xs" title="Condividi su WhatsApp" href="whatsapp://send?text=http://docenti.unisa.it/<%=req.params.idprof%>/home" aria-label="Condividi su WhatsApp"><span class="fa fa-whatsapp" aria-hidden="true"></span></a></li>
+            <li><a class="btn btn-sm btn-mail" href="mailto:?subject=Home&amp;body=http://docenti.unisa.it/<%=req.params.idprof%>/home" title="Condividi su Email" aria-label="Condividi su Email"><span class="fa fa-envelope" aria-hidden="true"></span></a></li>
+        </ul>
+    </div>
+    <ol class="breadcrumb" style="padding:10px 16px 11px 16px;">
+        <li>
+            <a href="http://web.unisa.it/" aria-label="UNISA " title="UNISA "><span class="fa fa-home"></span></a>
+        </li>
+        <li>
+            <a href="http://docenti.unisa.it/" aria-label="Docenti" title="Docenti">Docenti</a>
+        </li>
+        <li>
+            <a href="http://docenti.unisa.it/<%=req.params.idprof%>/home" aria-label="Home" title="Home">Home</a>
+        </li>
+    </ol>
+    <h1 id="rescue-title"><span class="hidden-xs">
+            <span><%= page_obj.nome %> <%= page_obj.cognome %> | </span> <span>Home</span>
+	</h1>
+    <h2 class="text-hide" resource="docenti/<%= req.params.idprof %>/home#me">
+		<span property="schema:givenName"><%= page_obj.nome %></span>
+		<span property="schema:familyName"><%= page_obj.cognome %></span> Home
+	</h2>
+    <div class="row">
+        <div class="col-md-12" resource="docenti/<%=req.params.idprof%>/home#me" typeof="uni:Professor">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="icon alert-warning"><span class="glyphicon glyphicon-user"></span></td>
+                        <td>
+							<div property="schema:hasOccupation" typeof="schema:Occupation">
+								<span property="schema:name"><%= page_obj.ruolo %></span>
+							</div>
+						</td>
+                    </tr>
+                    <tr>
+                        <td class="icon alert-warning"><span class="glyphicon glyphicon-home"></span></td>
+                        <td>
+							<div resource="https://www.diem.unisa.it/" property="schema:memberOf" typeof="schema:Organization">
+								<span property="schema:legalName"><%= page_obj.dipartimento %></span>
+									/<span property="schema:alternateName"><%= page_obj.dipartimento_sigla %></span>
+							</div>
+						</td>
+                    </tr>
+					<% for(var i=0; i<page_obj.telephone.length; i++) { %>
+                    <tr class="hidden-xs hidden-sm">
+                        <td class="icon alert-warning"><span class="glyphicon glyphicon-earphone"></span></td>
+                        <td><span property="schema:telephone" content="+3908996<%= page_obj.telephone[i] %>"><%= page_obj.telephone[i] %></span></td>
+                    </tr>
+                    <tr class="visible-xs visible-sm">
+                        <td class="icon alert-warning"><span class="glyphicon glyphicon-earphone"></span></td>
+                        <td><a class="btn btn-success visible-xs visible-sm" href="tel:+3908996<%= page_obj.telephone[i] %>">089 96<%= page_obj.telephone[i] %></a></td>
+                    </tr>
+					<% } %>
+					<% if(page_obj.fax.length > 0) { %>
+                    <tr>
+                        <td class="icon alert-warning"><span class="glyphicon glyphicon-print"></span></td>
+                        <td><span property="schema:faxNumber" content="+3908996<%= page_obj.fax[0] %>"><%= page_obj.fax[0] %></span></td>
+                    </tr>
+					<% } %>
+                    <tr class="hidden-xs hidden-sm">
+						<% console.log(page_obj.email) %>
+                        <td class="icon alert-warning"><span class="glyphicon glyphicon-envelope"></span></td>
+                        <td>
+							<span property="schema:email"><a href="mailto:<%= page_obj.email %>" title="Invia mail a <%= page_obj.cognome + page_obj.nome %>"><%= page_obj.email %></a></span>
+						</td>
+                    </tr>
+                    <tr class="visible-xs visible-sm">
+                        <td class="icon alert-warning"><span class="glyphicon glyphicon-envelope"></span></td>
+                        <td><a class="btn btn-mail visible-xs visible-sm" href="mailto:<%= page_obj.email %>" title="Invia mail a <%= page_obj.cognome + page_obj.nome %>" style="width:100%"><%= page_obj.email %></a></td>
+                    </tr>
+					<% if(Object.keys(page_obj.pos_ufficio).length > 0) { %>
+                    <tr>
+                        <td class="icon alert-warning"><span class="glyphicon glyphicon-map-marker"></span></td>
+                        <td>
+							
+							<a href="docenti/<%=  req.params.idprof%>/home#me" data-lat="<%= page_obj.pos_ufficio['latitudine'] %>" data-lon="<%= page_obj.pos_ufficio['longitudine'] %>" title="Campus di Fisciano, Edificio A1 (Rettorato), Piano Primo, stanza 004 (U.FRE-RATO.P01.004)" class="to-map closed">
+								<div property="uni:hasOffice" typeof="uni:Office">
+									<span property="uni:campusLocation"><%= page_obj.pos_ufficio['campus'] %></span>, 
+									<span property="uni:locatedInBuilding"><%= page_obj.pos_ufficio['edificio'] %></span>, 
+									<span property="uni:atFloor"><%= page_obj.pos_ufficio['piano'] %></span>, 
+									<span property="uni:roomNumber"><%= page_obj.pos_ufficio['stanza'] %></span>
+									<span property="geo:lat" content="<%= page_obj.pos_ufficio['latitudine'] %>"></span>
+									<span property="geo:long" content="<%= page_obj.pos_ufficio['longitudine'] %>"></span>
+								</div>
+							</a>
+							</div>
+						</td>
+                    </tr>
+					<% } %>
+                    <tr class="collapse" id="<%=req.params.idprof%>">
+                        <td class="icon"></td>
+                        <td>
+                            <div id="<%=req.params.idprof%>-map" style="position:relative;width:100%;height:250px"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+			
+			<% if(page_obj.link.length > 0) { %> 
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td class="icon alert-warning"><span class="fa fa-link"></span></td>
+						<td><a href="<%= page_obj.link %>" title="Pagina personale (link esterno)">Pagina personale (link esterno)</a></td>
+					</tr>
+					<tr></tr>
+				</tbody>
+			</table>
+			<% } %>
+
+			<% if(Object.keys(page_obj.orcid).length > 0) { %> 
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td class="icon alert-warning"><span class="fa fa-barcode"></span></td>
+						<td><a href="<%= page_obj.orcid['link'] %>" title="<%= page_obj.orcid['title'] %>"><%= page_obj.orcid['title'] %></a>
+						<span class="badge pull-right"><%= page_obj.orcid['codice'] %></span></td>
+					</tr>
+					<tr></tr>
+				</tbody>
+			</table>
+			<% } %>
+
+            <h3>Orario di Ricevimento</h3>
+			<div about="docenti/<%=  req.params.idprof%>/home#me">
+				<table class="table table-bordered">
+					<tbody rel="uni:hasOfficeHours">
+						<% for(var i=0; i<page_obj.office_hours.length; i++) { %>
+						<tr resource="[_<%= i %>]" typeof="uni:OfficeHours">
+							<td class="icon alert-success"><i class="fa fa-calendar"></i></td>
+							<td><strong><span property="uni:dayOfWeek"><%= page_obj.office_hours[i]['day'] %></span></strong></td>
+							<td>
+								<strong>
+									<span property="uni:openingHour" content="<%= page_obj.office_hours[i]['start_hour'] %>:00"><%= page_obj.office_hours[i]['start_hour'] %></span> - 
+									<span property="uni:closingHour" content="<%= page_obj.office_hours[i]['end_hour'] %>:00"><%= page_obj.office_hours[i]['end_hour'] %></span>
+								</strong>
+							</td>
+							<td><span property="uni:officeLocation"><%= page_obj.office_hours[i]['location'] %></span></td>
+						</tr>
+						<% } %>
+						<% if(page_obj.office_hours_alert.length > 0) { %>
+						<tr>
+							<td class="icon alert-success"><i class="fa fa-exclamation-circle"></i></td>
+							<td colspan="3" class="text-justify"><%= page_obj.office_hours_alert %></td>
+						</tr>
+						<% } %>
+					</tbody>
+				</table>
+			</div>
+			<% if(page_obj.announcements.length > 0) { %>
+			<h3>Bacheca Avvisi</h3>
+			<table class="table table-bordered">
+				<tbody>
+					<% for(var i=0; i<page_obj.announcements.length; i++) { %>
+					<tr>
+						<td class="icon alert-info" style=""><i class="fa fa-exclamation-circle"></i></td>
+						<td style=""><a href="<%= page_obj.announcements[i]['link'] %>" title="<%= page_obj.announcements[i]['title'] %>"><%= page_obj.announcements[i]['title'] %></a><br><small class="muted"><%= page_obj.announcements[i]['publication_date'] %></small></td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<a href="https://docenti.unisa.it/<%= req.params.idprof %>/home?avvisi=1" style="color:#333;background: #f0f0f0;" class="btn btn-sm " title="Tutti gli Avvisi">Tutti gli Avvisi <i class="fa fa-chevron-right"> </i></a>
+			<% } %>
+        </div>
+    </div>
+</div>
