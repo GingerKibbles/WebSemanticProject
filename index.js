@@ -11,7 +11,6 @@ app.listen(8080, () => {
   console.log('server started');
 });
 
-//
 app.use(express.static('public', { extensions: ['html', 'xml'] }));
 
 app.set('view engine', 'ejs');
@@ -27,7 +26,7 @@ app.get('/docenti/:idprof/:tipo1', function(req, res) {
 	var prof_url = 'https://docenti.unisa.it/'+req.params.idprof+'/'+req.params.tipo1;
 	var options = {
     	url: prof_url,
-    	ttl: 20000 // 3 seconds
+    	ttl: 20000
     };
 	cachedRequest(options, function (error, response, body) {
 		console.error('error:', error); // Print the error if one occurred
@@ -48,7 +47,3 @@ function parse_page(codice_prof, tipo1, body) {
 }
 
 //################################################################
-
-app.get('/docenti/:idprof/:tipo1/:tipo2', function(req, res) {
-  res.render(__dirname + '/public/docenti/page.ejs', {req});
-});
