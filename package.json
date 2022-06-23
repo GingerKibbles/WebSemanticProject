@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "express-partials": "^0.3.0",
     "jquery": "^3.4.1",
-    "jsdom": "^15.2.1",
+    "jsdom": "^16.5.0",
     "request": "^2.88.0",
     "utils": "^0.3.1"
   }
